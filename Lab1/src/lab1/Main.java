@@ -95,12 +95,13 @@ public class Main {
 		 * How do I get the description of each order instead of doing this
 		 * stupid thing forever (except for printing the args)?
 		 */
-		if (order instanceof BeverageWithIngredient) {
-			((BeverageWithIngredient) order).getDescription();
-		} else if (order instanceof Espresso) {
-			((Espresso) order).getDescription();
-		}
-		// and so on...
+		
+		/*
+		 * After adding an abstact method to the Beverage class and changing 
+		 * the constructor of BeverageWithIngredient class, we don't have to 
+		 * check the data type each time we using getDescription.
+		 */
+		order.getDescription();
 
 		DecimalFormat df = new DecimalFormat(".0");
 		System.out.println("The total cost of your order is: "
