@@ -9,7 +9,7 @@ public class Main {
 			disArr[j] = args[j].toLowerCase();
 		}
 
-		int i;
+		int i;		
 		for (i = 0; i < disArr.length; i++)
 			if (disArr[i].equals("small") || disArr[i].equals("medium")
 					|| disArr[i].equals("large"))
@@ -29,11 +29,9 @@ public class Main {
 
 		Beverage order;
 		if (beveStr.equals("espresso")) {
-			order = new CoffeeBeverage();
 			order = new Espresso();
 			((CoffeeBeverage) order).setSize(disArr[i]);
 		} else if (beveStr.equals("houseblend")) {
-			order = new CoffeeBeverage();
 			order = new HouseBlend();
 			((CoffeeBeverage) order).setSize(disArr[i]);
 		} else if (beveStr.equals("mocha")) {
@@ -84,7 +82,6 @@ public class Main {
 			} else if (disArr[i].equals("jasmine")) {
 				order = new Jasmine(order);
 			} else if (disArr[i].equals("whip")) {
-				i++;
 				order = new WhipCream(order);
 			} else {
 				System.out.println("Illegal input: " + disArr[i]);
