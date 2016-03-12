@@ -12,7 +12,7 @@ public class Main {
 		int i;		
 		for (i = 0; i < disArr.length; i++)
 			if (disArr[i].equals("small") || disArr[i].equals("medium")
-					|| disArr[i].equals("large"))
+					|| disArr[i].equals("large") || disArr[i].equals("grand"))
 				break;
 
 		if (i >= disArr.length) {
@@ -46,7 +46,11 @@ public class Main {
 			order = new Espresso();
 			((CoffeeBeverage) order).setSize(disArr[i]);
 			order = new WhipCream(order);
-		} else if (beveStr.equals("green tea")) {
+		}else if (beveStr.equals("decaf mocha")) {
+			order = new Decaf();
+			((CoffeeBeverage) order).setSize(disArr[i]);
+			order = new Chocolate(order);
+		}else if (beveStr.equals("green tea")) {
 			order = new GreenTea();
 			((TeaBeverage) order).setSize(disArr[i]);
 		} else if (beveStr.equals("red tea")) {
