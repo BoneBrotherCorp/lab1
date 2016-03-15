@@ -1,4 +1,7 @@
-package lab1;
+package lab1.entity.ingredient;
+
+import lab1.entity.Beverage;
+import lab1.entity.BeverageWithIngredient;
 
 public class Ginger extends BeverageWithIngredient {
 	public Ginger(Beverage drink) {

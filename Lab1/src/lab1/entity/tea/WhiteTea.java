@@ -1,4 +1,7 @@
-package lab1;
+package lab1.entity.tea;
+
+import lab1.entity.TeaBeverage;
+
 
 public class WhiteTea extends TeaBeverage {
 

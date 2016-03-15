@@ -1,9 +1,11 @@
-package lab1;
+package lab1.entity.coffee;
+
+import lab1.entity.CoffeeBeverage;
+
 
 public class Espresso extends CoffeeBeverage {
-	
 	public Espresso() {
-		description = "Esspresso";
+		description = "Espresso";
 	}
 
 	public double cost() {

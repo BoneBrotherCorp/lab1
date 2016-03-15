@@ -1,4 +1,8 @@
-package lab1;
+package lab1.entity.ingredient;
+
+import lab1.entity.Beverage;
+import lab1.entity.BeverageWithIngredient;
+
 
 public class WhipCream extends BeverageWithIngredient {
 	public WhipCream(Beverage drink) {

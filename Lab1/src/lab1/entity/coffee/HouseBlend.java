@@ -1,4 +1,7 @@
-package lab1;
+package lab1.entity.coffee;
+
+import lab1.entity.CoffeeBeverage;
+
 
 public class HouseBlend extends CoffeeBeverage {
 	
