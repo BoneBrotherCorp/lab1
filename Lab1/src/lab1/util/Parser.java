@@ -55,19 +55,30 @@ public class Parser {
 			order.add(args[i]);
 			
 			if (args[i].contains(";")) {
-				//if there is a space before ";"
+				//if there is a space on both side of ";"
 				if (args[i].equals(";")) {
 					order.remove(args[i]);
 				}
-				//if there is no space before ";"
+				//if there is no space on some side of ";"
 				else {
-					String arg = args[i].substring(0, args[i].length() - 1);
-					order.remove(args[i]);
-					order.add(arg);
+					int splitIndex = args[i].indexOf(';');
+					String arg = args[i].substring(0, splitIndex);
+					if(arg.length()>0){
+						//something before ;
+						order.remove(args[i]);
+						order.add(arg);
+					}
+					
+					arg = args[i].substring(splitIndex+1, args[i].length());
+					if(arg.length()>0){
+						//something after ;
+						order.remove(args[i]);
+						args[i] = arg;
+						i--;
+					}
 				}
 				orderList.add(order);
 				order = new ArrayList<String>();
-				
 			}
 		}
 		orderList.add(order);
@@ -110,10 +121,9 @@ public class Parser {
 			pos += 2;
 		} catch (NoSuchBeverageException e) {
 			bevName = order.get(pos);
+			bev = bevFactory.getBeverage(bevName);
 			pos++;
 		}
-		bev = bevFactory.getBeverage(bevName);
-		
 		
 		//get beverage size
 		String size = order.get(pos);
