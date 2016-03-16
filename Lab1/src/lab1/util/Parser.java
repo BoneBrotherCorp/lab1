@@ -61,7 +61,7 @@ public class Parser {
 				}
 				//if there is no space before ";"
 				else {
-					String arg = args[i].substring(0, args[i].length() - 2);
+					String arg = args[i].substring(0, args[i].length() - 1);
 					order.remove(args[i]);
 					order.add(arg);
 				}
@@ -110,9 +110,10 @@ public class Parser {
 			pos += 2;
 		} catch (NoSuchBeverageException e) {
 			bevName = order.get(pos);
+			pos++;
 		}
 		bev = bevFactory.getBeverage(bevName);
-		pos++;
+		
 		
 		//get beverage size
 		String size = order.get(pos);
