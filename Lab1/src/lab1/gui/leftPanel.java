@@ -105,7 +105,7 @@ public class leftPanel extends JPanel {
 						s = s + "Milk ";
 					for (int i = 0; i < s7; i++)
 						s = s + "WhipCream ";
-					s = s + ";";
+					s = s + ";\n";
 					rightPanel.ta.append(s);
 				}
 			} catch (Exception e1) {

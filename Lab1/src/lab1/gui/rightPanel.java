@@ -49,7 +49,7 @@ public class rightPanel extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			try {
 				Parser parser = new Parser();
-				String[] s = rightPanel.ta.getText().split(";");
+				String[] s = rightPanel.ta.getText().split(";\n");
 				DecimalFormat df = new DecimalFormat(".0");
 				double totalCost = 0;
 				for (int i = 0; i < s.length; i++)

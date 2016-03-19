@@ -20,7 +20,7 @@ public class mainFrame extends JFrame {
 		frame.setLocationRelativeTo(null);
 		frame.setSize(500, 480);
 		frame.setVisible(true);
-		frame.setDefaultCloseOperation(3);
+		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.setResizable(false);
 	}
 }
