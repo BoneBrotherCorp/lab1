@@ -9,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TeaBasedTest {
-
 	TeaBased tb;
 
 	@Before
@@ -30,6 +29,5 @@ public class TeaBasedTest {
 		}
 		
 	}
-
 
 }

@@ -19,7 +19,7 @@ public class leftPanel extends JPanel {
 	private JPanel p6 = new JPanel();
 	private JPanel p7 = new JPanel();
 	private JLabel l0 = new JLabel("number:");
-	private JLabel l1 = new JLabel("baverage:");
+	private JLabel l1 = new JLabel("beverage:");
 	private JLabel l2 = new JLabel("size:");
 	private JLabel l3 = new JLabel("Chocolate:");
 	private JLabel l4 = new JLabel("Ginger:");
@@ -28,7 +28,7 @@ public class leftPanel extends JPanel {
 	private JLabel l7 = new JLabel("WhipCream:");
 	private JTextField tf = new JTextField(5);
 	private JButton b = new JButton("add");
-	private baverage cb1 = new baverage();
+	private beverage cb1 = new beverage();
 	private size cb2 = new size();
 	private comboNumber cb3 = new comboNumber();
 	private comboNumber cb4 = new comboNumber();

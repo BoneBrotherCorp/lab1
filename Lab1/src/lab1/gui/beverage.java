@@ -2,8 +2,8 @@ package lab1.gui;
 
 import javax.swing.JComboBox;
 
-public class baverage extends JComboBox {
-	public baverage() {
+public class beverage extends JComboBox {
+	public beverage() {
 		addItem("Decaf");
 		addItem("Cappuccino");
 		addItem("Decaf Cappuccino");
