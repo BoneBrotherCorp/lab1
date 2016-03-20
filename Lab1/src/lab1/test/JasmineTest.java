@@ -1,6 +1,5 @@
 package lab1.test;
 
-import static org.junit.Assert.*;
 import lab1.entity.coffee.Cappuccino;
 import lab1.entity.coffee.Decaf;
 import lab1.entity.coffee.DecafCappuccino;

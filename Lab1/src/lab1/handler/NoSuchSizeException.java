@@ -17,6 +17,6 @@ public class NoSuchSizeException extends Exception {
 	}
 	
 	public void printMessage() {
-		System.out.println("Invalid size input: " + inputSize);
+		System.out.println("Invalid size input: \"" + inputSize + "\"");
 	}
 }

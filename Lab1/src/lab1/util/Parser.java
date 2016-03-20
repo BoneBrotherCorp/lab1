@@ -10,6 +10,7 @@ import lab1.handler.ArgumentMissingException;
 import lab1.handler.NoSuchBeverageException;
 import lab1.handler.NoSuchIngredientException;
 import lab1.handler.NoSuchSizeException;
+import lab1.handler.OrderNumException;
 
 public class Parser {
 	
@@ -26,10 +27,28 @@ public class Parser {
 	 * @throws NoSuchIngredientException 
 	 * @throws InvocationTargetException 
 	 * @throws NoSuchMethodException 
+	 * @throws OrderNumException 
 	 */
-	public double parseOrderLists(String[] args) throws ArgumentMissingException, InstantiationException, IllegalAccessException, NoSuchBeverageException, NoSuchSizeException, IndexOutOfBoundsException, NoSuchMethodException, InvocationTargetException, NoSuchIngredientException {
+	public double parseOrderLists(String[] args) throws ArgumentMissingException, InstantiationException, IllegalAccessException, NoSuchBeverageException, NoSuchSizeException, IndexOutOfBoundsException, NoSuchMethodException, InvocationTargetException, NoSuchIngredientException, OrderNumException {
 		double totalCost = 0;
-		ArrayList<ArrayList<String>> orderList = splitOrder(args);
+		int orderNum;
+		ArrayList<ArrayList<String>> orderList;
+		
+		//split the orders
+		try {
+			orderNum = Integer.parseInt(args[0]);
+			orderList = splitOrder(args, orderNum);
+		} catch (IndexOutOfBoundsException e) {
+			throw new ArgumentMissingException();
+		} catch (NumberFormatException e) {
+			ArrayList<String> order = new ArrayList<String>();
+			orderList = new ArrayList<ArrayList<String>>();
+			for (int i = 0; i < args.length; i++)
+				order.add(args[i]);
+			orderList.add(order);
+		}
+		
+		//parse the orders 
 		for (int i = 0; i < orderList.size(); i++) {
 			try {
 				totalCost += parseOrder(orderList.get(i));
@@ -44,45 +63,25 @@ public class Parser {
 	 * Split arguments into several order by ";"
 	 * @param args
 	 * @return an ArrayList of ArrayList<String>, each ArrayList<String> is an order
+	 * @throws OrderNumException 
 	 */
-	public ArrayList<ArrayList<String>> splitOrder(String[] args) throws ArgumentMissingException {
-		if (args.length == 0)
-			throw new ArgumentMissingException();
-		ArrayList<ArrayList<String>> orderList = new ArrayList<ArrayList<String>>();
+	public ArrayList<ArrayList<String>> splitOrder(String[] args, int orderNum) throws ArgumentMissingException, OrderNumException {
+		ArrayList<ArrayList<String>> orderList = new ArrayList<ArrayList<String>>(orderNum);
 		ArrayList<String> order = new ArrayList<String>();
 		
-		for (int i = 0; i < args.length; i++) {
-			order.add(args[i]);
-			
-			if (args[i].contains(";")) {
-				//if there is a space on both side of ";"
-				if (args[i].equals(";")) {
-					order.remove(args[i]);
-				}
-				//if there is no space on some side of ";"
-				else {
-					int splitIndex = args[i].indexOf(';');
-					String arg = args[i].substring(0, splitIndex);
-					if(arg.length()>0){
-						//something before ;
-						order.remove(args[i]);
-						order.add(arg);
-					}
-					
-					arg = args[i].substring(splitIndex+1, args[i].length());
-					if(arg.length()>0){
-						//something after ;
-						order.remove(args[i]);
-						args[i] = arg;
-						i--;
-					}
-				}
+		for (int i = 1; i < args.length; i++) {
+			if (!args[i].equals(";")) {
+				order.add(args[i]);
+			}
+			else {
 				orderList.add(order);
-				order = new ArrayList<String>();
+				order.clear();
 			}
 		}
 		orderList.add(order);
-		return orderList;
+		if (orderList.size() == orderNum)
+			return orderList;
+		throw new OrderNumException(orderNum);
 	}
 	
 	/**
@@ -99,19 +98,10 @@ public class Parser {
 	 * @throws NoSuchMethodException 
 	 */
 	public double parseOrder(ArrayList<String> order) throws InstantiationException, IllegalAccessException, NoSuchBeverageException, NoSuchSizeException, ArgumentMissingException, IndexOutOfBoundsException, NoSuchMethodException, InvocationTargetException, NoSuchIngredientException {
-		int num = 0;
 		int pos = 0;
 		Beverage bev;
 		BeverageFactory bevFactory = BeverageFactory.getFactory();
 		BeverageWithIngredientFactory ingFactory = BeverageWithIngredientFactory.getFactory();
-		
-		//get beverage number
-		try {
-			num = Integer.parseInt(order.get(0));
-			pos = 1;
-		} catch (NumberFormatException e) {
-			num = 1;
-		}
 		
 		//get beverage name
 		//first parse two strings, if the beverage dosen't exist, then parse one string instead 
@@ -134,6 +124,6 @@ public class Parser {
 			String ingredient = order.get(pos);
 			bev = ingFactory.getBeverageWithIngredient(ingredient, bev);
 		}
-		return bev.cost() * num;
+		return bev.cost();
 	}
 }

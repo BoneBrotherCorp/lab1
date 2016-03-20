@@ -1,7 +1,6 @@
 package lab1.test;
 
 import lab1.entity.BeverageFactory;
-import lab1.entity.size.CoffeeBased;
 import lab1.handler.NoSuchBeverageException;
 
 import org.junit.Assert;

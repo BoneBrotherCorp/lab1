@@ -2,7 +2,6 @@ package lab1.test;
 
 import lab1.entity.BeverageFactory;
 import lab1.entity.BeverageWithIngredientFactory;
-import lab1.entity.size.CoffeeBased;
 import lab1.handler.NoSuchBeverageException;
 import lab1.handler.NoSuchIngredientException;
 

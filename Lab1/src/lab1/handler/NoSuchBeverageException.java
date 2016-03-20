@@ -18,6 +18,6 @@ public class NoSuchBeverageException extends Exception {
 	}
 	
 	public void printMessage() {
-		System.out.println("Invalid beverage input: " + this.bevInput);
+		System.out.println("Invalid beverage input: \"" + this.bevInput + "\"");
 	}
 }

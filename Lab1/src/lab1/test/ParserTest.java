@@ -16,14 +16,14 @@ import lab1.util.Parser;
 
 public class ParserTest {
 	Parser p;
-	ArrayList s0;
+	ArrayList<String> s0;
 	String[] s1;
 	String[] s2;
 	String[] s3;
 	@Before
 	public void setUp() throws Exception {
 		p = new Parser();
-		s0=new ArrayList();
+		s0=new ArrayList<String>();
 		s0.add("1");
 		s0.add("decaf");
 		s0.add("small");

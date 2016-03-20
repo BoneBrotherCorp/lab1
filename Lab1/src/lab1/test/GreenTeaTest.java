@@ -1,9 +1,6 @@
 package lab1.test;
 
 import static org.junit.Assert.*;
-import lab1.entity.Beverage;
-import lab1.entity.ingredient.Jasmine;
-import lab1.entity.tea.GreenTea;
 import lab1.entity.tea.GreenTea;
 import lab1.handler.NoSuchSizeException;
 

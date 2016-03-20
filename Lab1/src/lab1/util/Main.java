@@ -6,6 +6,7 @@ import lab1.handler.ArgumentMissingException;
 import lab1.handler.NoSuchBeverageException;
 import lab1.handler.NoSuchIngredientException;
 import lab1.handler.NoSuchSizeException;
+import lab1.handler.OrderNumException;
 
 public class Main {
 	public static void main(String[] args) {
@@ -16,6 +17,8 @@ public class Main {
 			System.out.println("The total cost of your order is: " + df.format(totalCost));
 		} catch (ArgumentMissingException ame) {
 			ame.printMessage();
+		} catch (OrderNumException one) {
+			one.printMessage();
 		} catch (NoSuchBeverageException nbe) {
 			nbe.printMessage();
 		} catch (NoSuchSizeException nse) {

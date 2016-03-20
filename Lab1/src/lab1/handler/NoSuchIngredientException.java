@@ -17,6 +17,6 @@ public class NoSuchIngredientException extends Exception {
 	}
 	
 	public void pirntMessage() {
-		System.out.println("Invalid ingredient input: " + this.ingredient);
+		System.out.println("Invalid ingredient input: \"" + this.ingredient + "\"");
 	}
 }
