@@ -16,7 +16,7 @@ public class mainFrame extends JFrame {
 
 	public static void main(String[] args) {
 		mainFrame frame = new mainFrame();
-		frame.setTitle("baverage cost helper");
+		frame.setTitle("beverage cost helper");
 		frame.setLocationRelativeTo(null);
 		frame.setSize(500, 480);
 		frame.setVisible(true);
