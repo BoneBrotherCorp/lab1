@@ -18,19 +18,14 @@ public class ParserTest {
 	Parser p;
 	ArrayList<String> s0;
 	String[] s1;
-	String[] s2;
-	String[] s3;
 	@Before
 	public void setUp() throws Exception {
 		p = new Parser();
 		s0=new ArrayList<String>();
-		s0.add("1");
 		s0.add("decaf");
 		s0.add("small");
 		s0.add("ginger");
-		s1=new String[]{"1","decaf","small","ginger;","2","mocha","medium","milk"};
-		s2=new String[]{"1","decaf","small","ginger",";2","mocha","medium","milk"};
-		s3=new String[]{"1","decaf","small","ginger",";","2","mocha","medium","milk"};
+		s1=new String[]{"2","decaf","small","ginger",";","mocha","medium","milk"};
 	}
 
 	@Test(timeout = 1000)
@@ -45,9 +40,7 @@ public class ParserTest {
 	@Test(timeout = 1000)
 	public void testParserOrderLists() throws InstantiationException, IllegalAccessException, NoSuchBeverageException, NoSuchSizeException, ArgumentMissingException, IndexOutOfBoundsException, NoSuchMethodException, InvocationTargetException, NoSuchIngredientException {
 		try {
-			Assert.assertEquals(6.1, p.parseOrderLists(s1), 0);
-			Assert.assertEquals(6.1, p.parseOrderLists(s2), 0);
-			Assert.assertEquals(6.1, p.parseOrderLists(s3), 0);
+			Assert.assertEquals(4.6, p.parseOrderLists(s1), 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
